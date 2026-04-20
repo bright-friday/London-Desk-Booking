@@ -1,0 +1,53 @@
+# Desk Booking Configuration
+
+application:
+  name: London Desk Booking
+  version: 1.0.0
+  environment: test
+
+server:
+  host: localhost
+  port: 8000
+  debug: true
+
+database:
+  type: postgresql
+  host: localhost
+  port: 5432
+  database: desk_booking_db
+  username: admin
+  password: ${DB_PASSWORD}
+
+features:
+  booking_creation: true
+  cancellation: true
+  check_in: true
+  check_out: true
+  reporting: true
+  analytics: true
+  notifications: true
+
+booking_rules:
+  max_booking_duration_hours: 8
+  min_advance_booking_days: 1
+  max_advance_booking_days: 30
+  cancellation_deadline_hours: 2
+
+notification_settings:
+  email_enabled: true
+  sms_enabled: false
+  slack_enabled: true
+
+analytics:
+  tracking_enabled: true
+  retention_days: 90
+  export_formats:
+    - csv
+    - json
+    - xlsx
+
+locations:
+  - id: london_hq
+    name: London HQ
+    timezone: Europe/London
+    floors: 5
